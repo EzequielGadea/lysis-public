@@ -10,7 +10,7 @@ class UserController extends Controller
 {
     public function login(LoginRequest $request)
     {
-        $http = Http::post('http://localhost:8000/api/auth', [
+        $http = Http::post('http://localhost:8001/api/auth', [
             'email' => $request->post('email'),
             'password' => $request->post('password'),
             'remember' => false,
@@ -26,7 +26,7 @@ class UserController extends Controller
 
     public function getRegister()
     {
-        $http = Http::get('http://localhost:8000/getSubscriptions');
+        $http = Http::get('http://localhost:8001/getSubscriptions');
         $apiResponse = json_decode($http, true);
 
         return view('registerModal', [
@@ -36,7 +36,7 @@ class UserController extends Controller
 
     public function register(RegisterRequest $request)
     {
-        $http = Http::post('http://localhost:8000/api/register', $request->validated());
+        $http = Http::post('http://localhost:8001/api/register', $request->validated());
         $apiResponse = json_decode($http, true);
         if ($apiResponse['result'] !== 'ok') {
             return back()->with('statusRegister', $apiResponse);
