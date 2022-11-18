@@ -459,98 +459,63 @@
               </div>
             </td>
           </tr>
-          <tr class="main-home__popular-events__table__event">
-            <td class="main-home__popular-events__table__event__cell">
-              <div class="main-home__popular-events__table__event__cell__time-live-sign">
-                <div class="main-home__popular-events__table__event__cell__layout__live-sign">
-                  <i class="fa-solid fa-circle --fs-6"></i>
-                  Live
-                </div>
-              </div>
-            </td>
-            <td class="main-home__popular-events__table__event__cell">
-              <div class="main-home__popular-events__table__event__cell__layout">
 
-                <!-- <div class="main-home__popular-events__table__event__cell__layout__live-sign">
-                  <i class="fa-solid fa-circle --fs-6"></i>
-                  Live
-                </div> -->
-
-                <div class="main-home__popular-events__table__event__cell__layout__team">
-                  Barcelona
-                  <img src="./images/escudos/barcelona.png" alt="escudo de futbol club barcelona"
-                  class="main-home__popular-events__table__event__cell__layout__team__shield">
+          @foreach ($events as $even)
+            @foreach ($even as $event)
+            <tr class="main-home__popular-events__table__event">
+              <td class="main-home__popular-events__table__event__cell">
+                <div class="main-home__popular-events__table__event__cell__time-live-sign">
+                  <div >
+                    <i style="font-size: 10px; ">
+                      {{ $event["startDate"] }}
+                    </i>
+                  </div>
                 </div>
-                <div class="main-home__popular-events__table__event__cell__layout__result">
-                  <p class="main-home__popular-events__table__event__cell__layout__result__text">
-                    1 <span class="main-home__popular-events__table__event__cell__layout__result__text__colon">:</span> 3
-                  </p>
+              </td>
+              <td class="main-home__popular-events__table__event__cell">
+                <div class="main-home__popular-events__table__event__cell__layout">
+  
+                  <div class="main-home__popular-events__table__event__cell__layout__team">
+                    <p>{{ $event["teamLocal"]["team"]["name"] }}</p>
+                    <img src="./images/escudos/barcelona.png" alt="escudo de futbol club barcelona"
+                    class="main-home__popular-events__table__event__cell__layout__team__shield">
+                  </div>
+                  <div class="main-home__popular-events__table__event__cell__layout__result">
+                    <p class="main-home__popular-events__table__event__cell__layout__result__text">
+                      1 <span class="main-home__popular-events__table__event__cell__layout__result__text__colon">:</span> 3
+                    </p>
+                  </div>
+                  <div class="main-home__popular-events__table__event__cell__layout__team">
+                    <img src="./images/escudos/barcelona.png" alt="escudo de futbol club barcelona"
+                    class="main-home__popular-events__table__event__cell__layout__team__shield">
+                    <p>{{ $event["teamVisitor"]["team"]["name"] }}</p>
+                  </div>
                 </div>
-                <div class="main-home__popular-events__table__event__cell__layout__team">
-                  <img src="./images/escudos/barcelona.png" alt="escudo de futbol club barcelona"
-                  class="main-home__popular-events__table__event__cell__layout__team__shield">
-                  Barcelona
+              </td>
+              <td class="main-home__popular-events__table__event__cell" id="main-home__popular-events__table__col-name__cell__id-league-value">
+                <div class="main-home__popular-events__table__event__cell__logo-text">
+                  <img src="./images/escudos/LaLigaLogo.png" alt="logo de la liga santander" 
+                    class="main-home__popular-events__table__event__cell__logo-text__logo">
+                  <div class="main-home__popular-events__table__event__cell__logo-text__text">
+                    <p class="main-home__popular-events__table__event__cell__logo-text__text__league">
+                      <p>{{ $event["league"]["name"] }}</p>
+                    </p>
+                    <p class="main-home__popular-events__table__event__cell__logo-text__text__country">
+                      <br>
+                      
+                    </p>
+                  </div>
                 </div>
-              </div>
-            </td>
-            <td class="main-home__popular-events__table__event__cell" id="main-home__popular-events__table__col-name__cell__id-league-value">
-              <div class="main-home__popular-events__table__event__cell__logo-text">
-                <img src="./images/escudos/LaLigaLogo.png" alt="logo de la liga santander" 
-                  class="main-home__popular-events__table__event__cell__logo-text__logo">
-                <div class="main-home__popular-events__table__event__cell__logo-text__text">
-                  <p class="main-home__popular-events__table__event__cell__logo-text__text__league">
-                    LaLiga Santander
-                  </p>
-                  <p class="main-home__popular-events__table__event__cell__logo-text__text__country">
-                    España
-                  </p>
-                </div>
-              </div>
-            </td>
-          </tr>
-          <tr class="main-home__popular-events__table__event">
-            <td class="main-home__popular-events__table__event__cell">
-              <div class="main-home__popular-events__table__event__cell__hour-date">
-                <p class="main-home__popular-events__table__event__cell__hour-date__hour">08:00</p>
-                <p class="main-home__popular-events__table__event__cell__hour-date__date">Mar 21</p>
-              </div>
-            </td>
-            <td class="main-home__popular-events__table__event__cell">
-              <div class="main-home__popular-events__table__event__cell__layout">
-                <div class="main-home__popular-events__table__event__cell__layout__team">
-                  Barcelona
-                  <img src="./images/escudos/barcelona.png" alt="escudo de futbol club barcelona"
-                  class="main-home__popular-events__table__event__cell__layout__team__shield">
-                </div>
-                <div class="main-home__popular-events__table__event__cell__layout__result">
-                  <p class="main-home__popular-events__table__event__cell__layout__result__text">
-                    1 <span class="main-home__popular-events__table__event__cell__layout__result__text__colon">:</span> 3
-                  </p>
-                </div>
-                <div class="main-home__popular-events__table__event__cell__layout__team">
-                  <img src="./images/escudos/barcelona.png" alt="escudo de futbol club barcelona"
-                  class="main-home__popular-events__table__event__cell__layout__team__shield">
-                  Barcelona
-                </div>
-              </div>
-            </td>
-            <td class="main-home__popular-events__table__event__cell" id="main-home__popular-events__table__col-name__cell__id-league-value">
-              <div class="main-home__popular-events__table__event__cell__logo-text">
-                <img src="./images/escudos/LaLigaLogo.png" alt="logo de la liga santander" 
-                  class="main-home__popular-events__table__event__cell__logo-text__logo">
-                <div class="main-home__popular-events__table__event__cell__logo-text__text">
-                  <p class="main-home__popular-events__table__event__cell__logo-text__text__league">
-                    LaLiga Santander
-                  </p>
-                  <p class="main-home__popular-events__table__event__cell__logo-text__text__country">
-                    España
-                  </p>
-                </div>
-              </div>
-            </td>
-          </tr>
+              </td>
+            </tr>
+            
+            @endforeach
+          @endforeach
+          
+          
         </table>
       </div>
+      w
     </div>
 
     <aside class="aside-right">
