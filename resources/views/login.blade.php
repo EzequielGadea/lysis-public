@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="images/icono.ico" />
     <link rel="stylesheet" href="./dist/styles.css">
-    <link rel="stylesheet" href="./dist/styles.css.map">
+    <link rel="stylesheet" href="../dist/styles.css.map">
     <script src="https://kit.fontawesome.com/d2e8cc781d.js" crossorigin="anonymous"></script>
     <script src="./js/jquery-3.6.1.min.js"></script>
     <script src="./js/openRegisterModal.js"></script>
@@ -114,16 +114,21 @@
         </div>
       </div>
       <div class="main-login__login-card">
-        <form action="#" class="main-login__login-card__login">
+        <form action="/login" method="POST" class="main-login__login-card__login">
+          @csrf
           <h2 class="main-login__login-card__login__h2">
             Inicia sesión
           </h2>
-          <input type="email" name="email" id="emailInput" class="main-login__login-card__login__email-input --input" placeholder="Correo electronico">
-          <input type="password" name="password" id="password" class="main-login__login-card__login__passwd-input --input" placeholder="Contraseña">
-            <a href="#" class="main-login__login-card__login__passwd-reset">
-              ¿Olvidaste tu contraseña?
-            </a>
-            <button type="submit" class="main-login__card-login__login__submit --login-btn">Iniciar sesión</button>
+          <input type="email" name="email" id="emailInput" 
+            class="main-login__login-card__login__email-input --input" 
+            placeholder="Correo electronico" />
+
+          <input type="password" name="password" id="password" 
+            class="main-login__login-card__login__passwd-input --input" 
+            placeholder="Contraseña" />
+          <p class="field-error-msg">{{ session('statusLogin') }}</p>
+
+          <button type="submit" class="main-login__card-login__login__submit --login-btn">Iniciar sesión</button>
         </form>
         <a href="#" class="main-login__login-card__register --login-btn" id="main-login__login-card__register-id">
           Registrate
@@ -149,11 +154,13 @@
       </div>
     </div>
     <div class="register-modal__line"></div>
-    <form action="#" class="register-modal__register-form">
-      <input type="text" name="user" id="userInput" class="register-modal__register-form__user-input --input" placeholder="Nombre de usuario">
-      <input type="email" name="emailRegister" id="emailInputRegister" class="register-modal__register-form__email-input --input" placeholder="Correo electronico">
-      <input type="password" name="passwordRegister" id="passwordInputRegister" class="register-modal__register-form__passwd-input --input" placeholder="Contraseña">
-      <input type="password" name="passwordRepeat" id="passwordRepeat" class="register-modal__register-form__passwdRepeat-input --input" placeholder="Repetir contraseña">
+    <form action="/register" method="post" class="register-modal__register-form">
+      @csrf
+      <input type="text" name="name" id="userInput" class="register-modal__register-form__user-input --input" placeholder="Nombre de usuario">
+      <input type="text" name="surname" id="userInput" class="register-modal__register-form__user-input --input" placeholder="Nombre de usuario">
+      <input type="email" name="email" id="emailInputRegister" class="register-modal__register-form__email-input --input" placeholder="Correo electronico">
+      <input type="password" name="password" id="passwordInputRegister" class="register-modal__register-form__passwd-input --input" placeholder="Contraseña">
+      <input type="password" name="password_confirmation" id="passwordRepeat" class="register-modal__register-form__passwdRepeat-input --input" placeholder="Repetir contraseña">
       <div class="register-modal__register-form__bottom-text">
         Al presionar Registrarme usted acepta nuestros terminos <br>
         de uso, politica de privacidad y politica de coockies.
